@@ -2,7 +2,7 @@
 XAMPP is a software package that contains Apache HTTP server, PHP, MariaDB/MySQL, and Perl.
 
 Lab0: cài đặt xampp 
-cài đặt trên Debian 12.
+>cài đặt trên Debian 12.
 - cách chạy xampp : sudo /opt/lampp/lampp start
 ```
 dcviet@dcviet:/opt/lampp$ sudo /opt/lampp/lampp start
@@ -13,4 +13,4 @@ ok.
 XAMPP: Starting MySQL.../opt/lampp/share/xampp/xampplib: line 22: netstat: command not found
 ok.
 ```
-- Mình sử dụng vim và VScode
+>trình soạn thảo vim và VScode
