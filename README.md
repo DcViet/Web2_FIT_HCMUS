@@ -1,5 +1,6 @@
 # Web2_FIT_HCMUS
-<link src="http://web22k2321880291.42web.io" alt="web2" </link>
+[Danh sach bai tap Web2](http://web22k2321880291.42web.io)
+
 XAMPP is a software package that contains Apache HTTP server, PHP, MariaDB/MySQL, and Perl.
 
 Lab0: cài đặt xampp 
