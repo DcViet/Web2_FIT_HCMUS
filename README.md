@@ -16,3 +16,4 @@ XAMPP: Starting MySQL.../opt/lampp/share/xampp/xampplib: line 22: netstat: comma
 ok.
 ```
 >trình soạn thảo vim và VScode
+xem chi tiết tại phần nội dung bt bao gồm data được cập nhật lên server https://dash.infinityfree.com/
