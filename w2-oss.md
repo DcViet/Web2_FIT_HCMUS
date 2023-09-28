@@ -47,7 +47,7 @@ Bộ điều khiển chính (Main Controller): Được sử dụng để quản
 Bộ điều khiển tiềm ẩn (Implicit Controller): Là một công cụ giúp quản lý và điều hướng các tác vụ một cách tự động dựa trên các quy tắc và chuẩn mực đã được định sẵn.
 Bộ điều khiển tài nguyên (Resource Controller): Được sử dụng để quản lý các tài nguyên như dữ liệu từ cơ sở dữ liệu và cung cấp các phương thức và hoạt động tiêu chuẩn để thao tác với chúng.
 Bộ điều khiển phụ thuộc (Dependent Controller): Hỗ trợ xử lý các tác vụ phụ thuộc vào tình huống cụ thể hoặc dữ liệu được truyền vào.
-Dịch vụ tuyến đường (Routing Service): Cung cấp cơ chế quản lý và định tuyến các yêu cầu từ người dùng đến các bộ điều khiển và hành động tương ứng.
+Dịch vụ định tuyến (Routing Service): Cung cấp cơ chế quản lý và định tuyến các yêu cầu từ người dùng đến các bộ điều khiển và hành động tương ứng.
 
 1.3 Lợi ích
 
@@ -119,6 +119,7 @@ Laravel phiên bản 10.2.6 được phát hành 15/08/2023 hiện là phiên b�
 
 Trong báo cáo về laravel framework môn lập trình Web2 này, sử dụng phiên bản laravel 10.2.6  
 
+
 Sử dụng Composer (một trình quản lý gói PHP) để khởi tạo dự án laravel mới. Dưới đây là các bước chi tiết:
 
 **Bước 1: Cài đặt Composer**
@@ -167,9 +168,28 @@ Chúc bạn thành công trong việc phát triển dự án Laravel của mình
 
 
 
-Để tạo một trang nội dung trong một dự án Laravel, bạn cần làm các bước sau:
-
 Tạo một trang nội dung trong dự án Laravel, các bước như sau:
+
+**Bước 4: Tạo View**
+
+view để hiển thị nội dung trang. 
+
+Tạo một file có tên "page.blade.php" trong thư mục `resources/views` của dự án Laravel và định nghĩa nội dung HTML của trang trong file này.
+
+Nội dung file  page.blade.php
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang Nội Dung</title>
+</head>
+<body>
+    <h1>Xin chào, đây là trang nội dung!</h1>
+    <p>Đây là nội dung của trang bạn muốn hiển thị.</p>
+</body>
+</html>
+```
+
 
 Bước 1: Tạo Controller 
 
@@ -206,28 +226,95 @@ Tạo 1 route để xác định URL của trang nội dung: “/page” và li�
 Route::get('/page', 'PageController@index');
 ```
 
-**Bước 4: Tạo View**
-
-view để hiển thị nội dung trang. 
-
-Tạo một file có tên "page.blade.php" trong thư mục `resources/views` của dự án Laravel và định nghĩa nội dung HTML của trang trong file này.
-
-Nội dung file  page.blade.php
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Trang Nội Dung</title>
-</head>
-<body>
-    <h1>Xin chào, đây là trang nội dung!</h1>
-    <p>Đây là nội dung của trang bạn muốn hiển thị.</p>
-</body>
-</html>
-```
 
 **Bước 5: Truy cập Trang**
 
-Bây giờ bạn có thể truy cập trang nội dung bằng cách mở trình duyệt và điều hướng đến URL bạn đã định nghĩa trong route, ví dụ: `http://localhost:8000/page`.
+Truy cập trang nội dung vừa tạo : `http://localhost:8000/page`.
+
+
+Trong Laravel, bạn có thể thiết lập các route (điều hướng) để xác định cách ứng dụng của bạn phản hồi với các URL cụ thể. Dưới đây là cách bạn có thể thực hiện điều hướng liên kết (routing) trong Laravel:
+
+Trong laravel việc thiết lập route(điều hướng) để xác định cách ứng dụng phản hồi với URL cụ thể  đã định. 
+Sau đây là các cách thực hiện điều hướng liên kết (routing) trong Laravel: 
+
+Cách 1. Basic Routing (Điều hướng cơ bản):
+
+Định hướng các route cơ bản trong file `routes/web.php` 
+-	Route `'/about'` 
+-	Route `'/contact'` 
+-	định nghĩa các hàm () để xử lý các URL tương ứng.
+
+```php
+Route::get('/', function () {
+    return 'Trang chủ';
+});
+
+Route::get('/about', function () {
+    return 'Về chúng tôi';
+});
+
+Route::get('/contact', function () {
+    return 'Liên hệ';
+});
+```
+
+Cách 2. Named Routes (Điều hướng có tên):
+
+Laravel cho phép đặt tên các route để dễ dàng tham chiếu đến chúng trong mã và view. 
+Ví dụ:
+
+```php
+Route::get('/about', function () {
+    return 'Về chúng tôi';
+})->name('about');
+
+Route::get('/contact', function () {
+    return 'Liên hệ';
+})->name('contact');
+```
+
+Bây giờ bạn có thể sử dụng `route()` trong mã hoặc `route` trong view để truy cập các route có tên.
+
+Cách 3. Route Parameters (Tham số Route):
+
+Đặt tham số trong các route để xử lý các URL có các giá trị động. Ví dụ:
+
+```php
+Route::get('/user/{id}', function ($id) {
+    return 'Thông tin của người dùng có ID: ' . $id;
+});
+```
+
+Trong ví dụ này, `{id}` là một tham số động, và giá trị của nó sẽ được truyền vào hàm () như một đối số.
+
+**4. Route Groups (Nhóm Route):**
+
+Bạn có thể gom nhóm các route liên quan lại với nhau trong một nhóm sử dụng `Route::group()`. Điều này giúp quản lý route và áp dụng middleware cho tất cả các route trong nhóm. Ví dụ:
+
+```php
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return 'Trang quản trị';
+    });
+
+    Route::get('/settings', function () {
+        return 'Cài đặt';
+    });
+});
+```
+
+Trong ví dụ này, chúng ta đã tạo một nhóm route có tiền tố `admin`, vì vậy các URL bắt đầu bằng "/admin" sẽ được ánh xạ vào các route trong nhóm này.
+
+**5. Route Controllers (Điều hướng bằng Controller):**
+
+Thay vì sử dụng hàm closure trong route, bạn có thể điều hướng các URL đến các phương thức của controller. Ví dụ:
+
+```php
+Route::get('/profile', 'ProfileController@index');
+```
+
+Trong trường hợp này, chúng ta đã điều hướng route `/profile` đến phương thức `index` của controller `ProfileController`.
+
+Đó là một số cách cơ bản để điều hướng liên kết trong Laravel. Laravel cung cấp nhiều tính năng mạnh mẽ khác để quản lý route, như middleware, đặt ràng buộc, và nhiều hơn nữa. Để biết thêm chi tiết, bạn nên tham khảo tài liệu chính thức của Laravel.
 
 
