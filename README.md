@@ -19,5 +19,8 @@ ok.
 >trình soạn thảo vim và VScode
 xem chi tiết tại phần nội dung bt bao gồm data được cập nhật lên server https://dash.infinityfree.com/
 
+kiểm tra quyền truy cập htdocs:
+ls -l /đường/dẫn/đến/thư/mục/htdocs
+
 cấp quyền trong thư mục htdocs cho vscode:
 sudo chown -R yourusername:yourusername /đường/dẫn/đến/thư/mục/htdocs 
