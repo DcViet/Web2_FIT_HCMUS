@@ -6,7 +6,7 @@ XAMPP is a software package that contains Apache HTTP server, PHP, MariaDB/MySQL
 Lab0: cài đặt xampp 
 >cài đặt trên Debian 12.
 - cách chạy xampp : sudo /opt/lampp/lampp start
-- /xampp
+- sudo ./manager-linux-x64.run
 ```
 dcviet@dcviet:/opt/lampp$ sudo /opt/lampp/lampp start
 Starting XAMPP for Linux 8.2.4-0...
